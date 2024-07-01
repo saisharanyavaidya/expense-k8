@@ -1,3 +1,4 @@
+# add config map to configure DB host details
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -6,6 +7,7 @@ metadata:
 data:
   DB_HOST: mysql # mysql component service name
 ---
+# Create a Deployment Set for mysql 
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -37,6 +39,7 @@ spec:
         - configMapRef:
             name: backend
 ---
+#create a clusterIP service so that backend can connect with mysql
 apiVersion: v1
 kind: Service
 metadata:
