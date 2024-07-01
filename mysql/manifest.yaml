@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql
+  labels:
+    component: mysql
+    project: expense
+    tier: db
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      component: mysql
+      project: expense
+      tier: db
+  #pod definition
+  template:
+    metadata:
+      labels:
+        component: mysql
+        project: expense
+        tier: db
+    spec:
+      containers:
+      - name: nginx
+        #image: nginx
+        image: nginx:stable-perl # image is updated with new one to see if new pods are created as part of deployment process
