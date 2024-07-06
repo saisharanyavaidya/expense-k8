@@ -121,6 +121,13 @@ spec:
       containers:
       - name: frontend
         image: sharanya0510/frontend:v1.0
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+          limits:
+            cpu: "150m"
+            memory: "256Mi"
         volumeMounts: # we are placing config map nginx.conf created above line 8 in /etc/nginx/nginx.conf path so that instead of 80 default nginx port wil be 8080 as per configuration above
         - name: nginx-conf
           mountPath: /etc/nginx/nginx.conf
@@ -149,4 +156,4 @@ spec:
   ports:
   - protocol: TCP
     port: 80 #service-port
-    targetPort: 80 #target-port
+    targetPort: 8080 #target-port

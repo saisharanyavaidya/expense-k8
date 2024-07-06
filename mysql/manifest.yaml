@@ -26,8 +26,15 @@ spec:
       containers:
       - name: mysql
         image: sharanya0510/mysql:v1.0
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+          limits:
+            cpu: "150m"
+            memory: "256Mi"
 ---
-#create a clusterIP service so that backend can connect with mys
+#create a clusterIP service so that backend can connect with mysql
 apiVersion: v1
 kind: Service
 metadata:
