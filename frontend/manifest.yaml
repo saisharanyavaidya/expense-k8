@@ -141,7 +141,7 @@ spec:
           - key: nginx.conf
             path: nginx.conf
 ---
-#create a Loadbalancer service so that frontend can connect with mysql
+#create a Loadbalancer service so that frontend can connect with backend
 apiVersion: v1
 kind: Service
 metadata:
