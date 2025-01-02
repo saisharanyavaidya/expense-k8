@@ -133,7 +133,7 @@ spec:
           mountPath: /etc/nginx/nginx.conf
           subPath: nginx.conf
           readOnly: true
-      volumes: # we are placing config map created above line 8 in volumes here and mounting this volume in nginx config path in line 124
+      volumes: # we are placing config map created above line 8 in volumes here and mounting this volume in nginx config path 
       - name: nginx-conf
         configMap:
           name: frontend
@@ -141,7 +141,7 @@ spec:
           - key: nginx.conf
             path: nginx.conf
 ---
-#create a clusterIP service so that frontend can connect with mysql
+#create a Loadbalancer service so that frontend can connect with mysql
 apiVersion: v1
 kind: Service
 metadata:
