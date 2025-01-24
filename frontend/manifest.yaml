@@ -158,6 +158,7 @@ spec:
     port: 80 #service-port
     targetPort: 8080 #target-port
 ---
+# this section is added after EKS creation using terraform
 apiVersion: elbv2.k8s.aws/v1beta1
 kind: TargetGroupBinding
 metadata:
